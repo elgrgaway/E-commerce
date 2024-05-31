@@ -1,0 +1,53 @@
+/* Container for the slider */
+.sliderContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Styles for the slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Styles for the list of slides */
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for individual slides */
+.slick-slide {
+  padding: 0 15px; /* Add padding to each slide to create gap */
+}
+
+/* Styles for navigation arrows */
+
+/* Styles for previous arrow */
+.slick-prev {
+  left: -30px;
+}
+
+/* Styles for next arrow */
+.slick-next {
+  right: -30px;
+}
+
+/* Styles for arrow icons */
+
+/* Hover styles for arrows */
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slick-dots li.slick-active button:before {
+  color: #db4444; /* Color for active dot */
+}
