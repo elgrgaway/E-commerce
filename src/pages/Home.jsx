@@ -1,4 +1,5 @@
 // import ProductCard from "../components/ProductCard";
+import BrowseCategory from "../components/BrowseCategory";
 import MainSlider from "../components/MainSlider";
 // import ProductsList from "../components/ProductsList";
 import SideBar from "../components/SideBar";
@@ -13,6 +14,7 @@ function Home() {
         <MainSlider />
       </div>
       <TodayProducts />
+      <BrowseCategory />
       {/* <div>HOme</div> */}
       {/* <ProductsList /> */}
       {/*  */}

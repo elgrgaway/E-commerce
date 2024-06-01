@@ -20,7 +20,7 @@ function FullServices() {
     },
   ];
   return (
-    <div className="flex justify-around gap-4 items-center mb-[140px]">
+    <div className="flex justify-around gap-4 items-center mb-[140px] max-md:flex-col">
       {services.map((service, index) => (
         <div className="flex flex-col items-center " key={index}>
           <img
@@ -28,7 +28,9 @@ function FullServices() {
             src={service.image}
             alt={service.alt}
           />
-          <p className="mb-2 text-xl font-semibold">{service.name}</p>
+          <p className="mb-2 text-xl font-semibold text-center">
+            {service.name}
+          </p>
           <p className="text-sm">{service.detail}</p>
         </div>
       ))}

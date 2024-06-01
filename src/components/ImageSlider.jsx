@@ -33,11 +33,37 @@ function ImageSlider() {
   ];
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    autoplay: true,
     slidesToShow: 3,
     slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 680,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="">
@@ -45,8 +71,13 @@ function ImageSlider() {
         <Slider {...settings}>
           {slides.map((card, index) => (
             <div key={index} className=" w-[370px] flex  justify-center">
-              <div className=" bg-[var(--bg-gray)] flex  justify-center mb-8">
-                <img className=" pt-10 px-6 " src={card.url} alt="" />
+              <div className=" bg-[var(--bg-gray)] flex items-end  justify-center mb-8">
+                <img
+                  className=" pt-10 px-6 h-[392px]  "
+                  src={card.url}
+                  alt={`${card.name} icon`}
+                  loading="lazy"
+                />
               </div>
               <div>
                 <p className="text-[32px] font-semibold font-[inter] mb-2">
