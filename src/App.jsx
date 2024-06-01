@@ -10,6 +10,7 @@ import Login from "./pages/Login.jsx";
 import Error from "./pages/Error.jsx";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
+import ProductsList from "./components/ProductsList.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
+          <Route path="all-products" element={<ProductsList />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

@@ -1,7 +1,7 @@
 import History from "../common/History";
 import AboutNum from "../components/AboutNum";
 import FullServices from "../components/FullServices";
-import ImageSlider from "../utils/ImageSlider";
+import ImageSlider from "../components/ImageSlider";
 
 function About() {
   return (

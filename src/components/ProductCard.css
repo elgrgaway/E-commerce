@@ -1,0 +1,22 @@
+.card {
+  div {
+    overflow: hidden;
+    .image {
+      transition: 0.2s all ease-in-out;
+    }
+  }
+  .button-addTocart {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s all ease-in-out;
+  }
+}
+.card:hover {
+  .image {
+    transform: scale(1.2);
+  }
+  .button-addTocart {
+    visibility: visible;
+    opacity: 1;
+  }
+}

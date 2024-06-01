@@ -46,8 +46,8 @@ function TopHeader() {
     { value: "arbic", label: "Arabic" },
   ];
   return (
-    <div className=" text-sm bg-black text-[#fafafa] flex items-center px-32 py-3  ">
-      <p className="  flex-1 text-center">
+    <div className=" text-sm bg-black text-[#fafafa] flex items-center px-32 py-3  max-sm:p-2 max-sm:text-[10px]">
+      <p className="  flex-1 text-center ">
         Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
         <a href="#" className="font-semibold">
           {" "}

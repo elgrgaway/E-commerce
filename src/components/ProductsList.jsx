@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import styles from "./ProductsList.module.css";
 import ProductCard from "./ProductCard";
 import { useNavigate } from "react-router-dom";
+import LoadingProducts from "../utils/LoadingProducts";
+// import Skeleton from "react-loading-skeleton";
+// import "react-loading-skeleton/dist/skeleton.css";
 function ProductsList() {
   const navigate = useNavigate();
   const [flashsaleData, setFlashsaleData] = useState([]);
@@ -31,16 +34,17 @@ function ProductsList() {
 
   return (
     <>
-      {loading && (
+      {/* {loading && (
         <div className={styles["loading-parent"]}>
           <div className={styles.loading}></div>;
         </div>
-      )}
+      )} */}
+      {loading && <LoadingProducts length={10} width="82%" />}
       {error && navigate("/error")}
-      <div className=" grid grid-cols-4 gap-4 max-w-[82%] m-auto">
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-[82%] m-auto">
         {flashsaleData &&
-          flashsaleData.map((product) => (
-            <ProductCard key={product._id} product={product} />
+          flashsaleData.map((product, index) => (
+            <ProductCard key={product._id} product={product} index={index} />
           ))}
       </div>
     </>

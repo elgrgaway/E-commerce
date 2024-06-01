@@ -2,6 +2,7 @@
 import MainSlider from "../components/MainSlider";
 // import ProductsList from "../components/ProductsList";
 import SideBar from "../components/SideBar";
+import TodayProducts from "../components/TodayProducts";
 
 // import Timer from "../components/Timer";
 function Home() {
@@ -11,9 +12,10 @@ function Home() {
         <SideBar />
         <MainSlider />
       </div>
+      <TodayProducts />
       {/* <div>HOme</div> */}
       {/* <ProductsList /> */}
-      {/* <Timer duration={3 * 24 * 60 * 60 * 1000} /> */}
+      {/*  */}
     </div>
   );
 }

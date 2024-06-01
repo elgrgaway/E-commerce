@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 function MainSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
-    }, 3000); // Change slide every 3 seconds
+    }, 3500); // Change slide every 3 seconds
 
     return () => clearInterval(interval);
   }, [currentIndex]); // Clear interval when component unmounts or currentIndex changes
@@ -53,27 +54,32 @@ function MainSlider() {
     <div className="h-full relative text-white min-h-[344px] flex-1 my-auto bg-black">
       <div className=" flex items-center justify-between px-16 py-4">
         <div className="flex flex-col gap-5">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-6">
             <img
               src={slides[currentIndex].brand}
               alt={`${slides[currentIndex].name} brand icon`}
+              loading="lazy"
             />
             <span>{slides[currentIndex].name}</span>
           </div>
           <span className="text-5xl font-semibold leading-[60px]">
             {slides[currentIndex].subtitle}
           </span>
-          <div className="flex gap-2">
-            <span className="hover:underline hover:underline-offset-8 font-semibold">
+          <div className="flex gap-2 items-center">
+            <Link
+              to="/all-products"
+              className="hover:underline hover:underline-offset-8 font-semibold"
+            >
               Shop Now
-            </span>
-            <img src="arrow-right.png" alt="arrow icon" />
+            </Link>
+            <img src="arrow-right.png" alt="arrow icon" loading="lazy" />
           </div>
         </div>
         <img
           className="w-[400px]"
           src={slides[currentIndex].image}
           alt={`${slides[currentIndex].name} product image`}
+          loading="lazy"
         />
       </div>
       <div className="flex justify-center mt-4">
