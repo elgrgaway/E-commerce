@@ -51,8 +51,8 @@ function MainSlider() {
   ];
 
   return (
-    <div className="h-full relative text-white min-h-[344px] flex-1 my-auto bg-black">
-      <div className=" flex items-center justify-between px-16 py-4">
+    <div className="h-full relative text-white min-h-[344px] flex-1 my-auto bg-black mb-0 ">
+      <div className=" flex items-center justify-between px-16 py-4 ">
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-6">
             <img
@@ -76,7 +76,7 @@ function MainSlider() {
           </div>
         </div>
         <img
-          className="w-[400px]"
+          className="w-[250px]"
           src={slides[currentIndex].image}
           alt={`${slides[currentIndex].name} product image`}
           loading="lazy"

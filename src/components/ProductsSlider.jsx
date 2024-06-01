@@ -33,11 +33,13 @@ function ProductsSlider() {
 
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 3,
     initialSlide: 0,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 1024,
@@ -93,7 +95,7 @@ function ProductsSlider() {
                           : product.title.slice(0, 60) + "..."}
                       </h4>
                     </Link>
-                    <span className="text-[#DB4444] font-medium">
+                    <span className="text-[#DB4444] font-medium my-2">
                       ${product.price}
                     </span>
                     <div className="flex items-center gap-2">

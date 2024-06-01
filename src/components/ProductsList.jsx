@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import styles from "./ProductsList.module.css";
 import ProductCard from "./ProductCard";
 import { useNavigate } from "react-router-dom";
 import LoadingProducts from "../utils/LoadingProducts";
-// import Skeleton from "react-loading-skeleton";
-// import "react-loading-skeleton/dist/skeleton.css";
-function ProductsList() {
+
+function ProductsList({ length, best }) {
   const navigate = useNavigate();
   const [flashsaleData, setFlashsaleData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -39,12 +37,18 @@ function ProductsList() {
           <div className={styles.loading}></div>;
         </div>
       )} */}
-      {loading && <LoadingProducts length={10} width="82%" />}
+      {loading && <LoadingProducts length={12} width="82%" />}
       {error && navigate("/error")}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-[82%] m-auto">
         {flashsaleData &&
           flashsaleData.map((product, index) => (
-            <ProductCard key={product._id} product={product} index={index} />
+            <ProductCard
+              key={product._id}
+              product={product}
+              index={index}
+              length={length}
+              best={best}
+            />
           ))}
       </div>
     </>

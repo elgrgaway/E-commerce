@@ -1,6 +1,11 @@
 // import ProductCard from "../components/ProductCard";
+import BestSelling from "../components/BestSelling";
 import BrowseCategory from "../components/BrowseCategory";
+import FullServices from "../components/FullServices";
 import MainSlider from "../components/MainSlider";
+import MusicSection from "../components/MusicSection";
+import NewArrival from "../components/NewArrival";
+import OurProducts from "../components/OurProducts";
 // import ProductsList from "../components/ProductsList";
 import SideBar from "../components/SideBar";
 import TodayProducts from "../components/TodayProducts";
@@ -15,6 +20,11 @@ function Home() {
       </div>
       <TodayProducts />
       <BrowseCategory />
+      <BestSelling />
+      <MusicSection />
+      <OurProducts />
+      <NewArrival />
+      <FullServices />
       {/* <div>HOme</div> */}
       {/* <ProductsList /> */}
       {/*  */}
