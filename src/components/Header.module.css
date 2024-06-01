@@ -70,7 +70,7 @@
   }
 }
 .header-line {
-  background-color: black;
+  background-color: var(--border-color);
   height: 0.5px;
   width: 100vw;
   margin-top: 16px;

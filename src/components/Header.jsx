@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+// import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import { useEffect, useState } from "react";
 import { auth, db } from "../utils/firebase";
@@ -16,13 +16,9 @@ function Header() {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           setUserDetails(docSnap.data());
-          console.log(docSnap.data());
-        } else {
-          console.log("User data does not exist");
         }
       } else {
         setUserDetails(null);
-        console.log("User is not logged in");
       }
     });
   };
