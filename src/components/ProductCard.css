@@ -13,7 +13,7 @@
 }
 .card:hover {
   .image {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   .button-addTocart {
     visibility: visible;

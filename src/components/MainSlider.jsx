@@ -31,8 +31,8 @@ function MainSlider() {
       subtitle: "Up to 10% off Voucher",
     },
     {
-      image: "iphone.png",
-      brand: "apple.png",
+      image: "samsung.png",
+      brand: "samsung logo.png",
       name: "Samsung Galaxy S21",
       subtitle: "Limited Time Offer until next month",
     },
@@ -43,8 +43,8 @@ function MainSlider() {
       subtitle: "Up to 10% off Voucher",
     },
     {
-      image: "iphone.png",
-      brand: "apple.png",
+      image: "samsung.png",
+      brand: "samsung logo.png",
       name: "Samsung Galaxy S21",
       subtitle: "Limited Time Offer until next month",
     },

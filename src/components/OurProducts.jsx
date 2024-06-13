@@ -10,14 +10,12 @@ function OurProducts() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://route-ecommerce.onrender.com/api/v1/products"
-      );
+      const response = await fetch("https://dummyjson.com/products");
       if (!response.ok) {
         setError("error");
       }
       const data = await response.json();
-      setProducts(data.data);
+      setProducts(data.products);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -50,8 +48,7 @@ function OurProducts() {
               key={product._id}
               product={product}
               index={index}
-              length={4}
-              best={200}
+              best={4.4}
             />
           ))}
       </div>

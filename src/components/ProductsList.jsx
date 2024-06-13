@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import { useNavigate } from "react-router-dom";
 import LoadingProducts from "../utils/LoadingProducts";
 
-function ProductsList({ length, best }) {
+function ProductsList({ length }) {
   const navigate = useNavigate();
   const [flashsaleData, setFlashsaleData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,14 +11,13 @@ function ProductsList({ length, best }) {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://route-ecommerce.onrender.com/api/v1/products"
-      );
+      const response = await fetch("https://dummyjson.com/products");
       if (!response.ok) {
         setError("error");
       }
       const data = await response.json();
-      setFlashsaleData(data.data);
+      // console.log(data.products);
+      setFlashsaleData(data.products);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -29,7 +28,9 @@ function ProductsList({ length, best }) {
   useEffect(() => {
     fetchData();
   }, []);
-
+  // flashsaleData.map((product) => {
+  //   console.log(product.thumbnail);
+  // });
   return (
     <>
       {/* {loading && (
@@ -43,11 +44,10 @@ function ProductsList({ length, best }) {
         {flashsaleData &&
           flashsaleData.map((product, index) => (
             <ProductCard
-              key={product._id}
+              key={product.id}
               product={product}
               index={index}
               length={length}
-              best={best}
             />
           ))}
       </div>

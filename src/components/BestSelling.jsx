@@ -1,24 +1,22 @@
 import { Link } from "react-router-dom";
-import ProductsList from "./ProductsList";
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import LoadingProducts from "../utils/LoadingProducts";
+import Error from "../pages/Error";
 
 function BestSelling() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [erorr, setError] = useState(false);
+  const [error, setError] = useState(false);
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://route-ecommerce.onrender.com/api/v1/products"
-      );
+      const response = await fetch("https://dummyjson.com/products");
       if (!response.ok) {
         setError("error");
       }
       const data = await response.json();
-      setProducts(data.data);
+      setProducts(data.products);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -51,6 +49,7 @@ function BestSelling() {
         </Link>
       </div>
       {loading && <LoadingProducts length={4} />}
+      {error && <p className="text-center">Products Not Found </p>}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {products &&
           products.map((product, index) => (
@@ -58,8 +57,8 @@ function BestSelling() {
               key={product._id}
               product={product}
               index={index}
-              length={0}
-              best={200}
+              // length={7}
+              best={4.62}
             />
           ))}
       </div>
