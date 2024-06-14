@@ -331,8 +331,9 @@ import CartContext from "../utils/StateContext";
 import "./ProductCard.css";
 
 function ProductCard({ product, index, length = 56, best = 0 }) {
-  const { addToCart, cart } = useContext(CartContext);
+  const { addToCart, cart, wishlist, addToWishlist } = useContext(CartContext);
   const [productInCart, setProductInCart] = useState(false);
+  const [productInWishlist, setProductInWishlist] = useState(false);
 
   useEffect(() => {
     const foundProduct = cart.find((p) => p.id === product.id);
@@ -340,6 +341,14 @@ function ProductCard({ product, index, length = 56, best = 0 }) {
       setProductInCart(true);
     }
   }, [cart, product.id]);
+  useEffect(() => {
+    const foundProduct = wishlist.find((p) => p.id === product.id);
+    if (foundProduct) {
+      setProductInWishlist(true);
+    } else {
+      setProductInWishlist(false);
+    }
+  }, [wishlist, product.id]);
 
   if (product.rating < best || index > length) {
     return null;
@@ -347,14 +356,28 @@ function ProductCard({ product, index, length = 56, best = 0 }) {
 
   return (
     <div className="card">
-      <div className="mb-4 relative flex items-center justify-center bg-[var(--bg-gray)] rounded">
+      <div className="mb-4 relative flex items-center justify-center bg-[var(--bg-gray)] rounded ">
         <img
           className="image w-[170px]"
           src={product.thumbnail}
           alt="product image"
           loading="lazy"
         />
-        <div></div>
+        {productInWishlist ? (
+          <button
+            onClick={() => addToWishlist(product)}
+            className=" absolute right-4 top-2.5  rounded-full bg-red-500 text-white transition-all "
+          >
+            <i className="fa-regular fa-heart  p-2.5 text-lg"></i>
+          </button>
+        ) : (
+          <button
+            onClick={() => addToWishlist(product)}
+            className=" absolute right-4 top-2.5 bg-white rounded-full hover:bg-red-500 hover:text-white transition-all "
+          >
+            <i className="fa-regular fa-heart  p-2.5 text-lg"></i>
+          </button>
+        )}
         {productInCart ? (
           <Link
             to="/cart"
@@ -397,3 +420,4 @@ function ProductCard({ product, index, length = 56, best = 0 }) {
 }
 
 export default ProductCard;
+//################

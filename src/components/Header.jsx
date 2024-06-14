@@ -168,7 +168,7 @@ function Header() {
             <Link to="/cart" className="relative">
               <img loading="lazy" src="Cart1.png" alt="cart icon" />
               <span className="absolute -top-3 -right-2 px-2 text-sm bg-[var(--red-color)] text-white p-1 rounded-full">
-                {cart.reduce((acc, item) => acc + item.quantity, 0)}
+                {cart.length}
               </span>
             </Link>
           </div>

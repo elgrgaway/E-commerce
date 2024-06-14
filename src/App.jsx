@@ -17,11 +17,13 @@ import Wishlist from "./pages/Wishlist.jsx";
 import { StateContext } from "./utils/StateContext.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 function App() {
   return (
     <>
       <StateContext>
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />

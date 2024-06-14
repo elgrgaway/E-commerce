@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import History from "../common/History";
+import CartContext from "../utils/StateContext";
 
 function Cart() {
-  const [cart, setCart] = useState([]);
+  const [cart1, setCart] = useState([]);
+  const { cart, removeFromCart } = useContext(CartContext);
 
   useEffect(() => {
-    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(cartItems);
-  }, []);
+    setCart(cart);
+  }, [cart]);
 
   const updateLocalStorage = (updatedCart) => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   const updateCartItemQuantity = (index, delta) => {
-    const updatedCart = [...cart];
+    const updatedCart = [...cart1];
     updatedCart[index].quantity = Math.max(
       1,
       updatedCart[index].quantity + delta
@@ -24,15 +25,14 @@ function Cart() {
     updateLocalStorage(updatedCart);
   };
 
-  const deleteHandler = (index) => {
-    const updatedCart = cart.filter((_, idx) => idx !== index);
-    setCart(updatedCart);
-    location.reload();
-    updateLocalStorage(updatedCart);
-  };
+  // const deleteHandler = (index) => {
+  //   const newCart = cart.filter((p, i) => index !== i);
+  //   setCart(newCart);
+  //   localStorage.setItem("cart", JSON.stringify(newCart));
+  // };
 
   const calculateTotal = () => {
-    return cart
+    return cart1
       .reduce((acc, item) => acc + item.price * item.quantity, 0)
       .toFixed(2);
   };
@@ -41,7 +41,7 @@ function Cart() {
     <div>
       <History page="Cart" />
       <div className="w-[82%] mx-auto mb-[140px]">
-        {cart.length > 0 ? (
+        {cart1.length > 0 ? (
           <>
             <table className="w-full text-left table-auto mb-6">
               <thead>
@@ -53,11 +53,11 @@ function Cart() {
                 </tr>
               </thead>
               <tbody>
-                {cart.map((product, index) => (
+                {cart1.map((product, index) => (
                   <tr key={index} className="py-7 px-10 shadow">
                     <td className="pl-10 max-w-32 relative">
                       <button
-                        onClick={() => deleteHandler(index)}
+                        onClick={() => removeFromCart(index)}
                         className="absolute left-8 bg-red-500 flex items-center justify-center text-[10px] rounded-full top-5 hover:bg-red-700 transition-all"
                       >
                         <i className="fa-solid fa-x text-white px-2 py-2"></i>

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import LoadingProducts from "../utils/LoadingProducts";
-import Error from "../pages/Error";
 
 function BestSelling() {
   const [products, setProducts] = useState([]);
@@ -15,6 +14,7 @@ function BestSelling() {
       if (!response.ok) {
         setError("error");
       }
+      setError(false);
       const data = await response.json();
       setProducts(data.products);
     } catch (error) {
@@ -49,7 +49,6 @@ function BestSelling() {
         </Link>
       </div>
       {loading && <LoadingProducts length={4} />}
-      {error && <p className="text-center">Products Not Found </p>}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {products &&
           products.map((product, index) => (
@@ -62,6 +61,7 @@ function BestSelling() {
             />
           ))}
       </div>
+      {error && <p className="text-center">Products Not Found </p>}
     </div>
   );
 }
