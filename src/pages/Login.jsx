@@ -109,6 +109,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
+import { toast } from "react-toastify";
 
 function Login() {
   const navigate = useNavigate();
@@ -121,25 +122,51 @@ function Login() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
-      navigate("/");
-      console.log(user);
-      console.log("user login succeesful");
+      setSuccessMsg("Login succeesful");
+
+      setTimeout(() => {
+        setSuccessMsg("");
+        navigate("/");
+      }, 0);
     } catch (error) {
-      console.log(error.message);
+      setErrorMsg(error.message);
+      setTimeout(() => {
+        setErrorMsg("");
+      }, 0);
     }
   };
   return (
     <div className="flex mt-[60px] mb-[140px] items-center gap-32 relative">
-      {successMsg && (
+      {/* {successMsg && (
         <div className="bg-green-300 text-white p-2.5 my-4 absolute top-20 right-2.5 rounded ">
           <p>{successMsg}</p>
         </div>
-      )}
-      {errorMsg && (
+      )} */}
+      {successMsg &&
+        toast.success(successMsg, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })}
+      {/* {errorMsg && (
         <div className="bg-red-400 text-white p-2.5 my-4 absolute top-20 right-2.5 rounded ">
           <p>{errorMsg}</p>
         </div>
-      )}
+      )} */}
+      {errorMsg &&
+        toast.error(errorMsg, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })}
       <img
         className="min-w-[40%]"
         loading="lazy"

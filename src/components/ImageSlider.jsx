@@ -73,7 +73,7 @@ function ImageSlider() {
             <div key={index} className=" w-[370px] flex  justify-center">
               <div className=" bg-[var(--bg-gray)] flex items-end  justify-center mb-8">
                 <img
-                  className=" pt-10 px-6 h-[392px]  "
+                  className=" pt-10 px-6 h-[392px] object-cover  "
                   src={card.url}
                   alt={`${card.name} icon`}
                   loading="lazy"

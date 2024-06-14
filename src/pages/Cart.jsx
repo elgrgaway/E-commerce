@@ -68,28 +68,37 @@ function Cart() {
                           src={product.thumbnail}
                           alt={product.title}
                         />
-                        <span>{product.title}</span>
+                        <Link
+                          to={`/all-products/${product.id}`}
+                          className=" hover:text-[var(--red-color)] transition-all"
+                        >
+                          {product.title}
+                        </Link>
                       </div>
                     </td>
-                    <td>${product.price}</td>
-                    <td className="w-[72px] flex gap-4 items-center justify-center px-3 py-1.5 my-7 border-2 rounded">
-                      <span>{product.quantity}</span>
-                      <div className="flex flex-col items-center">
-                        <button
-                          onClick={() => updateCartItemQuantity(index, 1)}
-                          className="text-2xl"
-                        >
-                          <img src="Drop-Up-Small.png" alt="arrow up" />
-                        </button>
-                        <button
-                          onClick={() => updateCartItemQuantity(index, -1)}
-                          className="text-2xl"
-                        >
-                          <img src="Drop-Down-Small.png" alt="arrow down" />
-                        </button>
+                    <td className="min-w-[100px]">${product.price}</td>
+                    <td className=" min-w-[100px]">
+                      <div className="w-[72px] flex gap-4 items-center justify-center px-3 py-1.5 my-7 border-2 rounded">
+                        <span>{product.quantity}</span>
+                        <div className="flex flex-col items-center">
+                          <button
+                            onClick={() => updateCartItemQuantity(index, 1)}
+                            className="text-2xl"
+                          >
+                            <img src="Drop-Up-Small.png" alt="arrow up" />
+                          </button>
+                          <button
+                            onClick={() => updateCartItemQuantity(index, -1)}
+                            className="text-2xl"
+                          >
+                            <img src="Drop-Down-Small.png" alt="arrow down" />
+                          </button>
+                        </div>
                       </div>
                     </td>
-                    <td>${(product.price * product.quantity).toFixed(2)}</td>
+                    <td className="min-w-[100px]">
+                      ${(product.price * product.quantity).toFixed(2)}
+                    </td>
                   </tr>
                 ))}
               </tbody>

@@ -525,12 +525,12 @@ function Details() {
     <div>
       <History page={`All products / ${productData.title}`} />
       <div className="w-[82%] m-auto flex gap-[30px] items-stretch mb-[140px]">
-        <div>
+        <div className="flex flex-col ">
           {productData.images &&
             productData.images.map((image, index) => (
               <img
                 key={index}
-                className="max-w-[121px] bg-[var(--bg-gray)] rounded py-3 px-6 mb-4 cursor-pointer hover:bg-gray-300 transition-all"
+                className=" object-contain max-h-[121px] bg-[var(--bg-gray)] rounded py-3 px-6 mb-4 cursor-pointer hover:bg-gray-300 transition-all"
                 src={image}
                 alt={`product image ${index}`}
                 onClick={() => handleImageClick(index)}
@@ -538,11 +538,11 @@ function Details() {
               />
             ))}
         </div>
-        <div className="flex items-center justify-center flex-1 bg-[var(--bg-gray)] w-[500px]">
+        <div className="flex items-center justify-center flex-1 bg-[var(--bg-gray)] w-[500px] max-h-[650px] overflow-hidden p-4 object-contain  ">
           <img
-            className="w-full px-4"
+            className="h-[95%]   "
             src={productData.images[imageIndex]}
-            alt=""
+            alt={`${productData.title} image`}
             loading="lazy"
           />
         </div>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../utils/firebase";
 import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ function SignUp() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
-      console.log(user);
       if (user) {
         await setDoc(doc(db, "users", user.uid), {
           name,
@@ -26,22 +26,39 @@ function SignUp() {
           password,
         });
       }
-      console.log("user signup complete");
+      setSuccessMsg("SignUp complete");
     } catch (error) {
-      console.log(error.message);
+      setErrorMsg(error.message);
     }
   };
   return (
     <div className="flex mt-[60px] mb-[140px] items-center gap-32 relative">
       {successMsg && (
-        <div className="bg-green-300 text-white p-2.5 my-4 absolute top-10 right-2.5 rounded ">
-          <p>{successMsg}</p>
-        </div>
+        toast.success(successMsg, {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+        // <div className="bg-green-300 text-white p-2.5 my-4 absolute top-10 right-2.5 rounded ">
+        //   <p>{successMsg}</p>
+        // </div>
       )}
-      {errorMsg && (
-        <div className="bg-red-400 text-white p-2.5 my-4 absolute top-10 right-2.5 rounded ">
-          <p>{errorMsg}</p>
-        </div>
+      {errorMsg && (toast.error(errorMsg, {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+        // <div className="bg-red-400 text-white p-2.5 my-4 absolute top-10 right-2.5 rounded ">
+        //   <p>{errorMsg}</p>
+        // </div>
       )}
       <img
         className=" min-w-[40%]"

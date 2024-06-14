@@ -102,17 +102,20 @@
 
 // export default Header;
 import { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth, db } from "../utils/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import styles from "./Header.module.css";
 import NavList from "./NavList";
-import CartContext from "../utils/StateContext";
 
-function Header() {
+import CartContext from "../utils/StateContext";
+import { toast } from "react-toastify";
+
+function Header({ setProducts }) {
   const [userDetails, setUserDetails] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const { cart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const fetchUserData = async () => {
     auth.onAuthStateChanged(async (user) => {
@@ -135,6 +138,15 @@ function Header() {
   const signoutHandler = async () => {
     try {
       await auth.signOut();
+      toast.error("Your Sign out", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -143,7 +155,12 @@ function Header() {
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
   };
-
+  const searchHandler = (value) => {
+    navigate("/search-products");
+    fetch(`https://dummyjson.com/products/search?q=${value}`)
+      // .then((res) => res.json())
+      .then((data) => setProducts(data.url));
+  };
   return (
     <div className={styles["header-line"]}>
       <header className={styles.header}>
@@ -158,7 +175,11 @@ function Header() {
         </div>
         <div className={styles["header-right"]}>
           <div className={styles["search-parent"]}>
-            <input type="text" placeholder="What are you looking for?" />
+            <input
+              type="text"
+              placeholder="What are you looking for?"
+              onChange={(e) => searchHandler(e.target.value)}
+            />
             <img loading="lazy" src="search.png" alt="search icon" />
           </div>
           <div className="flex gap-4">
