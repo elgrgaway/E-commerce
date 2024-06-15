@@ -1,63 +1,92 @@
-import { Link } from "react-router-dom";
-function SideBar() {
+import { Link, useNavigate } from "react-router-dom";
+function SideBar({ setProducts }) {
+  const navigate = useNavigate();
+  const searchHandler = (value) => {
+    navigate("/search-products");
+
+    if (value === "beauty") {
+      fetch(`https://dummyjson.com/products/category/beauty`).then((data) =>
+        setProducts(data.url)
+      );
+    } else if (value === "groceries") {
+      fetch(`https://dummyjson.com/products/category/groceries`).then((data) =>
+        setProducts(data.url)
+      );
+    } else {
+      fetch(`https://dummyjson.com/products/search?q=${value}`).then((data) =>
+        setProducts(data.url)
+      );
+    }
+  };
+  // console.log(setProducts);
+
   return (
-    <div className=" flex flex-col gap-4 pt-10 px-4 border-r-2 border-solid border-[var(--border-color)]] max-lg:flex-row max-lg:text-sm max-lg:border-none  flex-wrap">
-      <Link
-        className=" transition-all hover:text-[var(--red-color)] flex items-center justify-between"
-        to="/all-products"
+    <div className=" flex flex-col items-start gap-4 pt-10 px-4 border-r-2 border-solid border-[var(--border-color)]] max-lg:flex-row max-lg:text-sm max-lg:border-none  flex-wrap">
+      <button
+        className=" transition-all hover:text-[var(--red-color)] w-full flex items-center justify-between "
+        // to="/search-products"
+        onClick={() => searchHandler("fashion")}
       >
-        Woman`s Fashion
-        <span className=" text-[18px]">&gt;</span>
-      </Link>
-      <Link
+        Women`s Fashion
+        <span className=" text-[18px] ">&gt;</span>
+      </button>
+      <button
         className=" transition-all hover:text-[var(--red-color)] flex items-center gap-14"
-        to="/all-products"
+        // to="/all-products"
+        onClick={() => searchHandler("shirt")}
       >
         Mens`s Fashion
         <span className=" text-[18px]">&gt;</span>
-      </Link>
-      <Link
+      </button>
+      <button
         className=" transition-all hover:text-[var(--red-color)]"
-        to="/all-products"
+        // to="/all-products"
+        onClick={() => searchHandler("laptop")}
       >
         Electroincs
-      </Link>
-      <Link
+      </button>
+      <button
         className=" transition-all hover:text-[var(--red-color)]"
-        to="/all-products"
+        // to="/all-products"
+
+        onClick={() => searchHandler("kitchen")}
       >
         Home & Lifestyle
-      </Link>
+      </button>
       <Link
         className=" transition-all hover:text-[var(--red-color)]"
         to="/all-products"
       >
         Medicine
       </Link>
-      <Link
+      <button
         className="transition-all  hover:text-[var(--red-color)]"
-        to="/all-products"
+        // to="/all-products"
+        onClick={() => searchHandler("ball")}
       >
         Sports & Outdoor
-      </Link>
-      <Link
+      </button>
+      <button
         className=" transition-all hover:text-[var(--red-color)]"
-        to="/all-products"
+        // to="/all-products"
+        onClick={() => searchHandler("game")}
       >
         Baby`s & Toys
-      </Link>
-      <Link
+      </button>
+      <button
         className=" transition-all hover:text-[var(--red-color)]"
-        to="/all-products"
+        // to="/all-products"
+        onClick={() => searchHandler("groceries")}
       >
         Groceries & Pets
-      </Link>
-      <Link
+      </button>
+      <button
         className=" transition-all hover:text-[var(--red-color)]"
-        to="/all-products"
+        // to="/all-products"
+        onClick={() => searchHandler("beauty")}
       >
         Health & Beauty
-      </Link>
+      </button>
     </div>
   );
 }

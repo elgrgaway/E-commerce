@@ -16,7 +16,7 @@ function AllProducts({ length }) {
   // },[articles])
   const fetchData = async () => {
     try {
-      const response = await fetch(articles);
+      const response = await fetch("https://dummyjson.com/products");
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }

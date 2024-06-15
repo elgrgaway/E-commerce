@@ -10,7 +10,7 @@ function Layout() {
     <div>
       <TopHeader />
       <Header setProducts={setProducts} />
-      <Outlet context={[products]} />
+      <Outlet context={[products, setProducts]} />
       <Footer />
     </div>
   );

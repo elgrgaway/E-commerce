@@ -139,7 +139,7 @@ function Header({ setProducts }) {
   const signoutHandler = async () => {
     try {
       await auth.signOut();
-      toast.error("Your Sign out", {
+      toast.error("You`re Sign out", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -158,13 +158,11 @@ function Header({ setProducts }) {
   };
   const searchHandler = (value) => {
     navigate("/search-products");
-    fetch(`https://dummyjson.com/products/search?q=${value}`)
-      // .then((res) => res.json())
-      .then((data) => setProducts(data.url));
+    fetch(`https://dummyjson.com/products/search?q=${value}`).then((data) =>
+      setProducts(data.url)
+    );
   };
-  // const openSearchHandler = () => {
-  //   setSearchIsOpen(true);
-  // };
+
   return (
     <div className={styles["header-line"]}>
       <header className={styles.header}>
