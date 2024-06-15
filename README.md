@@ -2,6 +2,10 @@
 
 Welcome to the E-Commerce Frontend Project! This is a modern, responsive web application that provides a seamless shopping experience with Firebase authentication.
 
+## 🌐 Live Demo
+
+Check out the live version [here](https://e-commerce-ae.vercel.app).
+
 ## 🚀 Features
 
 - 🔐 User authentication with Firebase (Sign Up, Login, Logout)
