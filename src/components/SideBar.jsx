@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function SideBar() {
   return (
-    <div className=" flex flex-col gap-4 pt-10 px-4 border-r-2 border-solid border-[var(--border-color)]]">
+    <div className=" flex flex-col gap-4 pt-10 px-4 border-r-2 border-solid border-[var(--border-color)]] max-lg:flex-row max-lg:text-sm max-lg:border-none  flex-wrap">
       <Link
         className=" transition-all hover:text-[var(--red-color)] flex items-center justify-between"
         to="/all-products"

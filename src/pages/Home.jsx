@@ -13,8 +13,8 @@ import TodayProducts from "../components/TodayProducts";
 // import Timer from "../components/Timer";
 function Home() {
   return (
-    <div className="w-[82%] m-auto">
-      <div className="flex gap-11 mb-[140px] ">
+    <div className="w-[82%] m-auto max-lg:w-[90%]">
+      <div className="flex gap-11 mb-[140px] max-lg:flex-col ">
         <SideBar />
         <MainSlider />
       </div>

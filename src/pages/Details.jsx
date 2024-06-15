@@ -524,27 +524,29 @@ function Details() {
   return (
     <div>
       <History page={`All products / ${productData.title}`} />
-      <div className="w-[82%] m-auto flex gap-[30px] items-stretch mb-[140px]">
-        <div className="flex flex-col ">
-          {productData.images &&
-            productData.images.map((image, index) => (
-              <img
-                key={index}
-                className=" object-contain max-h-[121px] bg-[var(--bg-gray)] rounded py-3 px-6 mb-4 cursor-pointer hover:bg-gray-300 transition-all"
-                src={image}
-                alt={`product image ${index}`}
-                onClick={() => handleImageClick(index)}
-                loading="lazy"
-              />
-            ))}
-        </div>
-        <div className="flex items-center justify-center flex-1 bg-[var(--bg-gray)] w-[500px] max-h-[650px] overflow-hidden p-4 object-contain  ">
-          <img
-            className="h-[95%]   "
-            src={productData.images[imageIndex]}
-            alt={`${productData.title} image`}
-            loading="lazy"
-          />
+      <div className="w-[82%] m-auto flex gap-[30px] items-stretch mb-[140px] max-lg:flex-col ">
+        <div className="flex gap-[30px] max-lg:flex-col-reverse max-lg:items-center">
+          <div className="flex flex-col max-lg:flex-row gap-4 max-md:w-full ">
+            {productData.images &&
+              productData.images.map((image, index) => (
+                <img
+                  key={index}
+                  className=" object-contain max-h-[121px] bg-[var(--bg-gray)] rounded py-3 px-6  cursor-pointer hover:bg-gray-300 transition-all max-md:w-[25%]"
+                  src={image}
+                  alt={`product image ${index}`}
+                  onClick={() => handleImageClick(index)}
+                  loading="lazy"
+                />
+              ))}
+          </div>
+          <div className="flex items-center justify-center flex-1 bg-[var(--bg-gray)] w-[500px] max-h-[650px] overflow-hidden p-4 object-contain max-md:w-full  ">
+            <img
+              className="h-[95%]   "
+              src={productData.images[imageIndex]}
+              alt={`${productData.title} image`}
+              loading="lazy"
+            />
+          </div>
         </div>
         <div className="flex-1">
           <h4 className="font-semibold text-2xl font-[inter] mb-4">
@@ -590,7 +592,7 @@ function Details() {
                 ))}
               </div>
             </div>
-            <div className="flex gap-4 ">
+            <div className="flex gap-4  max-md:flex-wrap">
               {/* <div className="flex rounded overflow-hidden ">
                 <button
                   className="border-solid border-[var(--border-color)] border-2 border-r-0 px-3 py-2 hover:bg-slate-200 transition-all"
@@ -616,7 +618,7 @@ function Details() {
               </button>
               <Link
                 to="/cart"
-                className="bg-[var(--red-color)] text-white px-12 hover:opacity-80
+                className="bg-[var(--red-color)] py-4 text-white px-12 hover:opacity-80
                content-center
                rounded transition-all"
               >

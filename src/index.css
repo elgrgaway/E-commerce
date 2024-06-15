@@ -45,6 +45,8 @@ body {
 textarea {
   resize: none;
 }
-
-/* saddddddddddddddddddddddddddd */
-/* Container for the slider */
+.overflow-table {
+  overflow-x: auto;
+  scrollbar-width: auto;
+  scrollbar-color: var(--red-color) white;
+}

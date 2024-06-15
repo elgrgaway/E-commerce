@@ -355,7 +355,7 @@ function ProductCard({ product, index, length = 56, best = 0 }) {
   }
 
   return (
-    <div className="card">
+    <div className="card max-md:mb-10">
       <div className="mb-4 relative flex items-center justify-center bg-[var(--bg-gray)] rounded ">
         <img
           className="image w-[170px]"

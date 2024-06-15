@@ -3,7 +3,7 @@ import Timer from "./Timer";
 
 function MusicSection() {
   return (
-    <div className="bg-black flex items-center justify-between h-[500px] px-14 text-white rounded mb-[70px]">
+    <div className="bg-black flex items-center justify-between h-[500px] px-14 text-white rounded mb-[70px] gap-4 max-md:px-4 ">
       <div>
         <span className="text-[#00ff66] font-semibold">Categories</span>
         <h5 className="text-5xl font-semibold font-[inter] leading-[60px] my-8 ">

@@ -1,6 +1,6 @@
 .header-line {
   position: sticky;
-  top: 0;
+  top: 0px;
   z-index: 999;
   background-color: white;
 
@@ -10,7 +10,7 @@
     margin: auto;
     align-items: center;
     /* position: relative; */
-    margin-top: 27px;
+    margin-top: 16px;
     padding: 20px 0;
     justify-content: space-between;
 
@@ -58,6 +58,7 @@
         }
       }
     }
+
     .search-parent {
       position: relative;
       input {
@@ -82,7 +83,9 @@
     /* margin-top: 16px; */
   }
 }
-
+.search-button {
+  display: none;
+}
 .active {
   position: relative;
 }
@@ -149,12 +152,30 @@
   .header {
     width: 95%;
   }
-}
-@media (max-width: 860px) {
+  .drop-menu-button {
+    display: flex;
+  }
   .main {
     display: none;
   }
-  .drop-menu-button {
-    display: flex;
+}
+@media (max-width: 860px) {
+  .search-parent {
+    display: none;
+  }
+  .search-button {
+    display: block;
+  }
+  .search-toogle {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+  }
+  .search-toogle.is-opened {
+    max-height: 100px;
+    overflow: visible;
+    opacity: 1;
+    transition: all 1s ease-in-out;
   }
 }

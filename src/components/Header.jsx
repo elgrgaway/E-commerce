@@ -113,7 +113,8 @@ import { toast } from "react-toastify";
 
 function Header({ setProducts }) {
   const [userDetails, setUserDetails] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [searchIsOpen, setSearchIsOpen] = useState(false);
   const { cart } = useContext(CartContext);
   const navigate = useNavigate();
 
@@ -153,7 +154,7 @@ function Header({ setProducts }) {
   };
 
   const toggleMenu = () => {
-    setIsOpen((prevState) => !prevState);
+    setMenuIsOpen((prevState) => !prevState);
   };
   const searchHandler = (value) => {
     navigate("/search-products");
@@ -161,6 +162,9 @@ function Header({ setProducts }) {
       // .then((res) => res.json())
       .then((data) => setProducts(data.url));
   };
+  // const openSearchHandler = () => {
+  //   setSearchIsOpen(true);
+  // };
   return (
     <div className={styles["header-line"]}>
       <header className={styles.header}>
@@ -174,6 +178,12 @@ function Header({ setProducts }) {
           />
         </div>
         <div className={styles["header-right"]}>
+          <button
+            className={styles["search-button"]}
+            onClick={() => setSearchIsOpen((prevState) => !prevState)}
+          >
+            <img loading="lazy" src="search.png" alt="search icon" />
+          </button>
           <div className={styles["search-parent"]}>
             <input
               type="text"
@@ -198,18 +208,39 @@ function Header({ setProducts }) {
           )}
         </div>
         <button onClick={toggleMenu} className={styles["drop-menu-button"]}>
-          <div className={`${styles.line} ${isOpen ? styles.open : ""}`}></div>
-          <div className={`${styles.line} ${isOpen ? styles.open : ""}`}></div>
-          <div className={`${styles.line} ${isOpen ? styles.open : ""}`}></div>
+          <div
+            className={`${styles.line} ${menuIsOpen ? styles.open : ""}`}
+          ></div>
+          <div
+            className={`${styles.line} ${menuIsOpen ? styles.open : ""}`}
+          ></div>
+          <div
+            className={`${styles.line} ${menuIsOpen ? styles.open : ""}`}
+          ></div>
         </button>
+
         <NavList
           styles={styles}
           userDetails={userDetails}
           signoutHandler={signoutHandler}
           type="drop-menu"
-          className={isOpen ? styles["is-opened"] : ""}
+          className={menuIsOpen ? styles["is-opened"] : ""}
         />
       </header>
+      {searchIsOpen && (
+        <div
+          className={`${styles["search-toogle"]} ${
+            searchIsOpen ? styles["is-opened"] : ""
+          } border-t-2 border-solid border-[var(--border-color)] `}
+        >
+          <input
+            type="text"
+            placeholder="What are you looking for?"
+            onChange={(e) => searchHandler(e.target.value)}
+            className="block py-4 outline-none w-[82%] m-auto"
+          />
+        </div>
+      )}
       <div className={styles["header-line"]}></div>
     </div>
   );

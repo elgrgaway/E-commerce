@@ -27,29 +27,33 @@ function Timer({ duration }) {
     }
     return (
       <table className=" text-left inline-block">
-        <tr>
-          <th className="text-[12px] font-medium">Days</th>
-          <th className="text-[12px] font-medium">Hours</th>
-          <th className="text-[12px] font-medium">Miuntes</th>
-          <th className="text-[12px] font-medium">Seconds</th>
-        </tr>
-        <tr>
-          <td className="text-[32px] font-[inter] font-bold">
-            {isDigit(days)}
-            <span className="text-[#E07575] text-2xl mx-1">:</span>
-          </td>
-          <td className="text-[32px] font-[inter] font-bold">
-            {isDigit(hours)}
-            <span className="text-[#E07575] text-2xl mx-1">:</span>
-          </td>
-          <td className="text-[32px] font-[inter] font-bold">
-            {isDigit(miuntes)}
-            <span className="text-[#E07575] text-2xl mx-1">:</span>
-          </td>
-          <td className="text-[32px] font-[inter] font-bold">
-            {isDigit(seconds)}
-          </td>
-        </tr>
+        <thead>
+          <tr>
+            <th className="text-[12px] font-medium">Days</th>
+            <th className="text-[12px] font-medium">Hours</th>
+            <th className="text-[12px] font-medium">Miuntes</th>
+            <th className="text-[12px] font-medium">Seconds</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="text-[32px] font-[inter] font-bold">
+              {isDigit(days)}
+              <span className="text-[#E07575] text-2xl mx-1">:</span>
+            </td>
+            <td className="text-[32px] font-[inter] font-bold">
+              {isDigit(hours)}
+              <span className="text-[#E07575] text-2xl mx-1">:</span>
+            </td>
+            <td className="text-[32px] font-[inter] font-bold">
+              {isDigit(miuntes)}
+              <span className="text-[#E07575] text-2xl mx-1">:</span>
+            </td>
+            <td className="text-[32px] font-[inter] font-bold">
+              {isDigit(seconds)}
+            </td>
+          </tr>
+        </tbody>
       </table>
     );
   };

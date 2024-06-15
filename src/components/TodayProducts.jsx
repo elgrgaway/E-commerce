@@ -8,7 +8,7 @@ function TodayProducts() {
         <div className="bg-[var(--red-color)] w-5 h-10 rounded"></div>
         <span className="text-[var(--red-color)] font-semibold">Today`s</span>
       </div>
-      <div className="flex justify-between items-center mb-10">
+      <div className="flex justify-between items-center mb-10 ">
         <div className="flex items-center">
           <span className=" font-[inter] font-semibold text-4xl mr-20 ">
             Flash Sales
@@ -29,7 +29,7 @@ function TodayProducts() {
         </div>
       </div>
       <ProductsSlider />
-      <div className=" text-center pb-[60px]">
+      <div className=" text-center pb-[60px] mt-4">
         <Link
           to="/all-products"
           className="bg-[var(--red-color)] text-white px-12 py-4 rounded hover:opacity-80 transition-all"

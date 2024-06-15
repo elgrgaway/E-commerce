@@ -59,8 +59,8 @@ const Contact = () => {
           {errorMsg}
         </div>
       )}
-      <div className="flex  justify-between gap-8 max-w-[82%] m-auto mb-36">
-        <div className="flex flex-col shadow px-8 py-10 max-w-[340px]">
+      <div className="flex  justify-between gap-8 max-w-[82%] m-auto mb-36 max-lg:flex-col-reverse max-xl:max-w-[90%]">
+        <div className="flex flex-col shadow px-8 py-10 max-w-[340px] max-lg:max-w-full">
           <div className="top">
             <div className="flex items-center gap-4 mb-6">
               <img src="phone.png" alt="phone icon" />
@@ -85,7 +85,7 @@ const Contact = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit} className=" flex-1 shadow px-8 py-10 ">
-          <div className="flex  mb-8 gap-4">
+          <div className="flex  mb-8 gap-4 max-xl:flex-wrap">
             <input
               type="text"
               name="name"

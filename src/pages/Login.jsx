@@ -136,12 +136,7 @@ function Login() {
     }
   };
   return (
-    <div className="flex mt-[60px] mb-[140px] items-center gap-32 relative">
-      {/* {successMsg && (
-        <div className="bg-green-300 text-white p-2.5 my-4 absolute top-20 right-2.5 rounded ">
-          <p>{successMsg}</p>
-        </div>
-      )} */}
+    <div className="flex mt-[60px] mb-[140px] items-center gap-32 relative max-xl:w-[82%] max-xl:text-center max-xl:m-auto max-xl:mt-12 max-xl:mb-[140px]">
       {successMsg &&
         toast.success(successMsg, {
           position: "top-right",
@@ -152,11 +147,7 @@ function Login() {
           draggable: true,
           progress: undefined,
         })}
-      {/* {errorMsg && (
-        <div className="bg-red-400 text-white p-2.5 my-4 absolute top-20 right-2.5 rounded ">
-          <p>{errorMsg}</p>
-        </div>
-      )} */}
+
       {errorMsg &&
         toast.error(errorMsg, {
           position: "top-right",
@@ -168,12 +159,12 @@ function Login() {
           progress: undefined,
         })}
       <img
-        className="min-w-[40%]"
+        className=" min-w-[40%] max-xl:hidden"
         loading="lazy"
         src="Side Image.png"
         alt="image of some products"
       />
-      <div>
+      <div className="max-xl:w-full max-xl:m-auto">
         <h2 className="text-4xl font-medium font-['Inter'] mb-6">
           Log in to Exclusive
         </h2>

@@ -40,70 +40,72 @@ function Cart() {
   return (
     <div>
       <History page="Cart" />
-      <div className="w-[82%] mx-auto mb-[140px]">
+      <div className="w-[82%] mx-auto mb-[140px] max-lg:w-[90%]">
         {cart1.length > 0 ? (
           <>
-            <table className="w-full text-left table-auto mb-6">
-              <thead>
-                <tr className="py-7 px-10 shadow">
-                  <th className="py-7 pl-10">Product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Subtotal</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cart1.map((product, index) => (
-                  <tr key={index} className="py-7 px-10 shadow">
-                    <td className="pl-10 max-w-32 relative">
-                      <button
-                        onClick={() => removeFromCart(index)}
-                        className="absolute left-8 bg-red-500 flex items-center justify-center text-[10px] rounded-full top-5 hover:bg-red-700 transition-all"
-                      >
-                        <i className="fa-solid fa-x text-white px-2 py-2"></i>
-                      </button>
-                      <div className="flex items-center gap-4">
-                        <img
-                          className="w-[50px]"
-                          src={product.thumbnail}
-                          alt={product.title}
-                        />
-                        <Link
-                          to={`/all-products/${product.id}`}
-                          className=" hover:text-[var(--red-color)] transition-all"
-                        >
-                          {product.title}
-                        </Link>
-                      </div>
-                    </td>
-                    <td className="min-w-[100px]">${product.price}</td>
-                    <td className=" min-w-[100px]">
-                      <div className="w-[72px] flex gap-4 items-center justify-center px-3 py-1.5 my-7 border-2 rounded">
-                        <span>{product.quantity}</span>
-                        <div className="flex flex-col items-center">
-                          <button
-                            onClick={() => updateCartItemQuantity(index, 1)}
-                            className="text-2xl"
-                          >
-                            <img src="Drop-Up-Small.png" alt="arrow up" />
-                          </button>
-                          <button
-                            onClick={() => updateCartItemQuantity(index, -1)}
-                            className="text-2xl"
-                          >
-                            <img src="Drop-Down-Small.png" alt="arrow down" />
-                          </button>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="min-w-[100px]">
-                      ${(product.price * product.quantity).toFixed(2)}
-                    </td>
+            <div className=" overflow-table ">
+              <table className="w-full min-w-[600px] text-left table-auto mb-6">
+                <thead>
+                  <tr className="py-7 px-10 shadow">
+                    <th className="py-7 pl-10">Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-            <div className="flex items-center justify-between mb-20">
+                </thead>
+                <tbody>
+                  {cart1.map((product, index) => (
+                    <tr key={index} className="py-7 px-10 shadow">
+                      <td className="pl-10 max-w-[180px] relative">
+                        <button
+                          onClick={() => removeFromCart(index)}
+                          className="absolute left-8 bg-red-500 flex items-center justify-center text-[10px] rounded-full top-5 hover:bg-red-700 transition-all"
+                        >
+                          <i className="fa-solid fa-x text-white px-2 py-2"></i>
+                        </button>
+                        <div className="flex items-center gap-4">
+                          <img
+                            className="w-[50px]"
+                            src={product.thumbnail}
+                            alt={product.title}
+                          />
+                          <Link
+                            to={`/all-products/${product.id}`}
+                            className=" hover:text-[var(--red-color)] transition-all"
+                          >
+                            {product.title}
+                          </Link>
+                        </div>
+                      </td>
+                      <td className="w-[100px]">${product.price}</td>
+                      <td className=" w-[100px]">
+                        <div className="w-[72px] flex gap-4 items-center justify-center px-3 py-1.5 my-7 border-2 rounded">
+                          <span>{product.quantity}</span>
+                          <div className="flex flex-col items-center">
+                            <button
+                              onClick={() => updateCartItemQuantity(index, 1)}
+                              className="text-2xl"
+                            >
+                              <img src="Drop-Up-Small.png" alt="arrow up" />
+                            </button>
+                            <button
+                              onClick={() => updateCartItemQuantity(index, -1)}
+                              className="text-2xl"
+                            >
+                              <img src="Drop-Down-Small.png" alt="arrow down" />
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="w-[100px]">
+                        ${(product.price * product.quantity).toFixed(2)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="flex items-center justify-between mb-20 ">
               <Link
                 to="/"
                 className="border-2 rounded px-12 py-4 hover:bg-slate-400 hover:border-slate-400 transition-all hover:text-white"
@@ -117,7 +119,7 @@ function Cart() {
                 Update Cart
               </button>
             </div>
-            <div className="flex items-start justify-between">
+            <div className="flex items-start justify-between gap-8 max-md:flex-col-reverse max-md:items-center">
               <div className="flex gap-4 ">
                 <input
                   type="text"

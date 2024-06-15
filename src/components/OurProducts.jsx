@@ -45,7 +45,7 @@ function OurProducts() {
         {products &&
           products.map((product, index) => (
             <ProductCard
-              key={product._id}
+              key={product.id}
               product={product}
               index={index}
               best={4.4}

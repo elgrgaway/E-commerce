@@ -32,8 +32,8 @@ function SignUp() {
     }
   };
   return (
-    <div className="flex mt-[60px] mb-[140px] items-center gap-32 relative">
-      {successMsg && (
+    <div className="flex mt-[60px] mb-[140px] items-center gap-32 relative max-xl:w-[82%] max-xl:text-center max-xl:m-auto max-xl:mt-12 max-xl:mb-[140px]">
+      {successMsg &&
         toast.success(successMsg, {
           position: "top-left",
           autoClose: 3000,
@@ -42,12 +42,9 @@ function SignUp() {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-        })
-        // <div className="bg-green-300 text-white p-2.5 my-4 absolute top-10 right-2.5 rounded ">
-        //   <p>{successMsg}</p>
-        // </div>
-      )}
-      {errorMsg && (toast.error(errorMsg, {
+        })}
+      {errorMsg &&
+        toast.error(errorMsg, {
           position: "top-left",
           autoClose: 3000,
           hideProgressBar: false,
@@ -55,19 +52,15 @@ function SignUp() {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-        })
-        // <div className="bg-red-400 text-white p-2.5 my-4 absolute top-10 right-2.5 rounded ">
-        //   <p>{errorMsg}</p>
-        // </div>
-      )}
+        })}
       <img
-        className=" min-w-[40%]"
+        className=" min-w-[40%] max-xl:hidden"
         loading="lazy"
         src="Side Image.png"
         alt="image of some products"
       />
-      <div>
-        <h2 className=" text-4xl font-medium font-['Inter'] mb-6">
+      <div className="max-xl:w-full max-xl:m-auto">
+        <h2 className=" text-4xl font-medium font-['Inter'] mb-6 ">
           Create an account
         </h2>
         <span className=" block mb-12">Enter Your details below</span>
