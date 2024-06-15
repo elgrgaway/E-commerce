@@ -14,32 +14,32 @@ function BrowseCategory() {
           Browse By Category
         </span>
       </div>
-      <ul className="flex items-center gap-[30px] max-sm:flex-col mb-[60px] max-md:flex-wrap ">
-        <li className=" min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
+      <ul className="flex items-center gap-[30px] max-sm:flex-col mb-[60px] max-lg:flex-wrap ">
+        <li className=" max-lg:min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
           <Link to="/all-products" className="flex flex-col items-center">
             <i className=" text-5xl fa-solid fa-mobile-screen mb-4"></i>
             <span>Phones</span>
           </Link>
         </li>
-        <li className=" min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
+        <li className="  max-lg:min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
           <Link to="/all-products" className="flex flex-col items-center">
             <i className=" text-5xl fa-solid fa-desktop mb-4"></i>
             <span>Computers</span>
           </Link>
         </li>
-        <li className=" min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
+        <li className="  max-lg:min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
           <Link to="/all-products" className="flex flex-col items-center">
             <i className=" text-5xl fa-solid fa-camera mb-4"></i>
             <span>Camers</span>
           </Link>
         </li>
-        <li className=" min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
+        <li className="  max-lg:min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
           <Link to="/all-products" className="flex flex-col items-center">
             <i className=" text-5xl fa-solid fa-headphones mb-4"></i>
             <span>HeadPhones</span>
           </Link>
         </li>
-        <li className=" min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
+        <li className="  max-lg:min-w-[250px] border-2 border-solid border-[var(--border-color)] rounded py-6 flex-1 hover:bg-[var(--red-color)] hover:text-white hover:border-[white] transition-all">
           <Link to="/all-products" className="flex flex-col items-center">
             <i className=" text-5xl fa-solid fa-gamepad mb-4"></i>
             <span>Gaming</span>
