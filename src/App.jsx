@@ -15,7 +15,7 @@ import Details from "./pages/Details.jsx";
 import Cart from "./pages/Cart.jsx";
 import Wishlist from "./pages/Wishlist.jsx";
 import { StateContext } from "./utils/StateContext.jsx";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import SearchProducts from "./pages/SearchProducts.jsx";
