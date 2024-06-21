@@ -99,7 +99,14 @@ export const StateContext = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, wishlist, addToWishlist, removeFromCart }}
+      value={{
+        cart,
+        setCart,
+        addToCart,
+        wishlist,
+        addToWishlist,
+        removeFromCart,
+      }}
     >
       {children}
     </CartContext.Provider>

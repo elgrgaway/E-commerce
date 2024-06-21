@@ -19,6 +19,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import SearchProducts from "./pages/SearchProducts.jsx";
+import CheckOut from "./pages/CheckOut.jsx";
 function App() {
   return (
     <>
@@ -33,6 +34,7 @@ function App() {
               <Route path="contact" element={<Contact />} />
               <Route path="about" element={<About />} />
               <Route path="cart" element={<Cart />} />
+              <Route path="checkout" element={<CheckOut />} />
               <Route path="wishlist" element={<Wishlist />} />
               <Route path="all-products" element={<AllProducts />} />
               <Route path="search-products" element={<SearchProducts />} />

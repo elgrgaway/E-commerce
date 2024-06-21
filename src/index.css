@@ -19,6 +19,7 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+
 .link {
   position: relative;
   margin-left: 15px;

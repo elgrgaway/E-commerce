@@ -23,7 +23,7 @@ function SideBar({ setProducts }) {
   return (
     <div className=" flex flex-col items-start gap-4 pt-10 px-4 border-r-2 border-solid border-[var(--border-color)]] max-lg:flex-row max-lg:text-sm max-lg:border-none  flex-wrap">
       <button
-        className=" transition-all hover:text-[var(--red-color)] w-full flex items-center justify-between "
+        className=" transition-all hover:text-[var(--red-color)] w-full flex items-center justify-between max-lg:w-fit gap-4 "
         // to="/search-products"
         onClick={() => searchHandler("fashion")}
       >
@@ -31,7 +31,7 @@ function SideBar({ setProducts }) {
         <span className=" text-[18px] ">&gt;</span>
       </button>
       <button
-        className=" transition-all hover:text-[var(--red-color)] flex items-center gap-14"
+        className=" transition-all hover:text-[var(--red-color)] flex items-center gap-14 max-md:gap-4"
         // to="/all-products"
         onClick={() => searchHandler("shirt")}
       >

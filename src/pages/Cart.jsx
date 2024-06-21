@@ -144,9 +144,11 @@ function Cart() {
                   <span>Total:</span>
                   <span className="font-medium">${calculateTotal()}</span>
                 </div>
-                <button className="bg-red-500 text-white py-4 rounded hover:opacity-80 transition-all block w-3/4 mx-auto">
-                  Proceed to checkout
-                </button>
+                <Link to="/checkout">
+                  <button className="bg-red-500 text-white py-4 rounded hover:opacity-80 transition-all block w-3/4 mx-auto">
+                    Proceed to checkout
+                  </button>
+                </Link>
               </div>
             </div>
           </>
