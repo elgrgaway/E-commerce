@@ -9,13 +9,13 @@ function TodayProducts() {
         <span className="text-[var(--red-color)] font-semibold">Today`s</span>
       </div>
       <div className="flex justify-between items-center mb-10 ">
-        <div className="flex items-center">
-          <span className=" font-[inter] font-semibold text-4xl mr-20 ">
+        <div className="flex items-center flex-wrap gap-20 max-md:gap-10">
+          <span className=" font-[inter] font-semibold text-4xl  ">
             Flash Sales
           </span>
           <Timer duration={3 * 24 * 60 * 60 * 1000} />{" "}
         </div>
-        <div>
+        {/* <div>
           <button className="bg-[var(--bg-gray)] rounded-full p-[11px] mr-2">
             <img src="black-arrow.png" alt="left arrow icon" />
           </button>
@@ -26,7 +26,7 @@ function TodayProducts() {
               alt="right arrow icon"
             />
           </button>
-        </div>
+        </div> */}
       </div>
       <ProductsSlider />
       <div className=" text-center pb-[60px] mt-4">
