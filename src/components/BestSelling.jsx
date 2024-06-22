@@ -35,7 +35,7 @@ function BestSelling() {
           This Month
         </span>
       </div>
-      <div className="flex justify-between items-center mb-10">
+      <div className="flex justify-between items-center mb-10 max-md:flex-col max-md:gap-4">
         <div className="flex items-center">
           <span className=" font-[inter] font-semibold text-4xl mr-20 ">
             Best Selling Products

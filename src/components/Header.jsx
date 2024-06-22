@@ -12,6 +12,7 @@ function Header({ setProducts }) {
   const [userDetails, setUserDetails] = useState(null);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [searchIsOpen, setSearchIsOpen] = useState(false);
+  // const [searchValue, setSearchValue] = useState();
   const { cart } = useContext(CartContext);
   const navigate = useNavigate();
 
@@ -53,11 +54,17 @@ function Header({ setProducts }) {
   const toggleMenu = () => {
     setMenuIsOpen((prevState) => !prevState);
   };
+  // const changeSearch = (value) => {
+  //   setSearchValue(value);
+  // };
   const searchHandler = (value) => {
-    navigate("/search-products");
-    fetch(`https://dummyjson.com/products/search?q=${value}`).then((data) =>
-      setProducts(data.url)
-    );
+    setTimeout(() => {
+      // e.preventDefault()
+      navigate("/search-products");
+      fetch(`https://dummyjson.com/products/search?q=${value}`).then((data) =>
+        setProducts(data.url)
+      );
+    }, 2000);
   };
 
   return (
@@ -80,11 +87,14 @@ function Header({ setProducts }) {
             <img loading="lazy" src="search.png" alt="search" />
           </button>
           <div className={styles["search-parent"]}>
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              onChange={(e) => searchHandler(e.target.value)}
-            />
+            <form onSubmit={searchHandler}>
+              <input
+                type="text"
+                placeholder="What are you looking for?"
+                onChange={(e) => searchHandler(e.target.value)}
+                // onChange={(e) => changeSearch(e.target.value)}
+              />
+            </form>
             <img loading="lazy" src="search.png" alt="search" />
           </div>
           <div className="flex gap-4">

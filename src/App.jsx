@@ -1,7 +1,3 @@
-// import Footer from "./components/Footer";
-// import Header from "./components/Header.jsx";
-// import TopHeader from "./components/TopHeader.jsx";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout.jsx";
 import Home from "./pages/Home.jsx";
