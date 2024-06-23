@@ -29,10 +29,13 @@ function SignUp() {
       setSuccessMsg("SignUp complete");
     } catch (error) {
       setErrorMsg(error.message);
+      setTimeout(() => {
+        setErrorMsg(false);
+      }, 0);
     }
   };
   return (
-    <div className="flex mt-[60px] mb-[140px] items-center gap-32 relative max-xl:w-[82%] max-xl:text-center max-xl:m-auto max-xl:mt-12 max-xl:mb-[140px]">
+    <>
       {successMsg &&
         toast.success(successMsg, {
           position: "top-left",
@@ -53,61 +56,63 @@ function SignUp() {
           draggable: true,
           progress: undefined,
         })}
-      <img
-        className=" min-w-[40%] max-xl:hidden"
-        loading="lazy"
-        src="Side Image.png"
-        alt="image of some products"
-      />
-      <div className="max-xl:w-full max-xl:m-auto">
-        <h2 className=" text-4xl font-medium font-['Inter'] mb-6 ">
-          Create an account
-        </h2>
-        <span className=" block mb-12">Enter Your details below</span>
-        <form onSubmit={signupHandler}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            className=" border-b w-full outline-none border-solid py-2 mb-10 border-black"
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          <br />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email "
-            className=" border-b w-full outline-none border-solid py-2 mb-10 border-black"
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <br />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            className=" border-b w-full outline-none border-solid py-2 mb-10 border-black"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <br />
-          <button className="bg-[#DB4444] text-white  w-full py-4 font-medium rounded mb-4 transition  hover:opacity-85">
-            Create Account
-          </button>
-          <button className=" w-full py-4  rounded flex items-center justify-center gap-4 border-solid border transition border-[#00000041] mb-8 hover:bg-gray-100">
-            <img src="Icon-Google.png" alt="google icon" />
-            <span>sign up with Google</span>
-          </button>
-          <span>
-            Already have account?
-            <Link to="/login" className=" link">
-              Log in
-            </Link>
-          </span>
-        </form>
+      <div className="flex mt-[60px] mb-[140px] items-center gap-32 relative max-xl:w-[82%] max-xl:text-center max-xl:m-auto max-xl:mt-12 max-xl:mb-[140px]">
+        <img
+          className=" min-w-[40%] max-xl:hidden"
+          loading="lazy"
+          src="Side Image.png"
+          alt="image of some products"
+        />
+        <div className="max-xl:w-full max-xl:m-auto">
+          <h2 className=" text-4xl font-medium font-['Inter'] mb-6 ">
+            Create an account
+          </h2>
+          <span className=" block mb-12">Enter Your details below</span>
+          <form onSubmit={signupHandler}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              className=" border-b w-full outline-none border-solid py-2 mb-10 border-black"
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <br />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email "
+              className=" border-b w-full outline-none border-solid py-2 mb-10 border-black"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <br />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className=" border-b w-full outline-none border-solid py-2 mb-10 border-black"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <br />
+            <button className="bg-[#DB4444] text-white  w-full py-4 font-medium rounded mb-4 transition  hover:opacity-85">
+              Create Account
+            </button>
+            <button className=" w-full py-4  rounded flex items-center justify-center gap-4 border-solid border transition border-[#00000041] mb-8 hover:bg-gray-100">
+              <img src="Icon-Google.png" alt="google icon" />
+              <span>sign up with Google</span>
+            </button>
+            <span>
+              Already have account?
+              <Link to="/login" className=" link">
+                Log in
+              </Link>
+            </span>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default SignUp;
