@@ -171,7 +171,7 @@ function SignUp() {
     <div className="flex mt-[60px] mb-[140px] items-center gap-32 relative max-xl:w-[82%] max-xl:text-center max-xl:m-auto max-xl:mt-12 max-xl:mb-[140px]">
       {successMsg &&
         toast.success(successMsg, {
-          position: "top-left",
+          position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -181,7 +181,7 @@ function SignUp() {
         })}
       {errorMsg &&
         toast.error(errorMsg, {
-          position: "top-left",
+          position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
