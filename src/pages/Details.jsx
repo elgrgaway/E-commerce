@@ -54,7 +54,6 @@ function Details() {
     fetchData();
   }, [productId]);
   useEffect(() => {
-    console.log(productId);
     const foundProduct = wishlist.find((p) => p.id === parseInt(productId));
 
     if (foundProduct) {
